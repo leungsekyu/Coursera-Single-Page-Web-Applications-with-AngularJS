@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" ng-app="LunchCheck">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lunch Checker</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap" rel="stylesheet">
+  <style>
+    p { font-size: 1.3em; font-family: 'Coming Soon', cursive; }
+    .message { font-size: 1.3em; font-weight: bold; }
+  </style>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="LunchCheckController">
+  <div class="container">
+    <h1>Lunch Checker</h1>
+    <p><span class="glyphicon glyphicon-alert"></span> empty item NOT allowed, i.e., ',,'</p>
+
+    <div class="form-group">
+      <input id="lunch-menu" type="text" placeholder="list comma separated dishes you usually have for lunch" class="form-control" ng-model="lunch" ng-style="textbox_style">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-default" ng-click="lunchCheck()">Check If Too Much</button>
+    </div>
+    <div class="form-group message" ng-style="message_style">
+      {{message}}
+    </div>
+  </div>
+</body>
+</html>
