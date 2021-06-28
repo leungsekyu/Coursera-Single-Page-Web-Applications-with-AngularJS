@@ -12,7 +12,7 @@
         $scope.textbox_style = {};
 
         $scope.lunchCheck = function () {
-            var lunch = $scope.lunch.split(',').filter(n => n);
+            var lunch = $scope.lunch.split(',').filter(n => n.trim());
             if (lunch.length === 0) {
                 $scope.message = 'Please enter data first';
                 $scope.textbox_style = { 'border' : '1px solid red' };
