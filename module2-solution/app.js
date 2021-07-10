@@ -33,7 +33,7 @@
       { name: 'chocolate', quantity: 1 },
       { name: 'chips', quantity: 1 },
       { name: 'hamburger', quantity: 1 },
-      { name: 'cake', quantity: 2 }
+      { name: 'cake', quantity: 2 },
     ];
     var boughtItems = [];
 
