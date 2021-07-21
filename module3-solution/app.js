@@ -12,9 +12,10 @@
     var ddo = {
       templateUrl: 'matchedMenuItems.template.html',
       scope: {
-        loading: '<',
         found: '<',
         onRemove: '&',
+        showTable: '&',
+        showReminder: '&',
       },
     };
 
@@ -26,7 +27,6 @@
     var controller = this;
 
     controller.loading = false;
-    controller.searchTerm = '';
     controller.getMatchedMenuItems = function (searchTerm) {
       controller.loading = true;
       var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
@@ -34,11 +34,27 @@
         .then(function (response) {
           controller.loading = false;
           controller.found = response;
-          // console.log(controller.found);
+          console.log(controller.found);
         })
         .catch(function (error) {
           console.log(error);
         });
+    };
+
+    controller.showTable = function () {
+      if (controller.found !== undefined && controller.found.length !== 0) {
+        return true;
+      }
+      return false;
+    };
+
+    controller.showReminder = function () {
+      if (controller.found === undefined) {
+        return false;
+      } else if (controller.found.length === 0) {
+        return true;
+      }
+      return false;
     };
 
     controller.removeMatchedMenuItem = function (matchedMenuItemIndex) {
@@ -57,11 +73,16 @@
       }).then(function (response) {
         var foundItems = [];
 
+        if (searchTerm === undefined) {
+          return foundItems;
+        }
+
         var matchedMenuItems = response.data.menu_items;
         for (var matchedMenuItem of matchedMenuItems) {
           if (
-            matchedMenuItem.description.toLowerCase().indexOf(searchTerm.toLowerCase()) !=
-            -1
+            matchedMenuItem.description
+              .toLowerCase()
+              .indexOf(searchTerm.toLowerCase()) != -1
           ) {
             foundItems.push(matchedMenuItem);
           }

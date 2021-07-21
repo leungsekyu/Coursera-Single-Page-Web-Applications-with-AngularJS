@@ -1,38 +1,11 @@
-h1 {
-  margin-bottom: 30px;
-}
-
-input[type='text'] {
-  float: left;
-  width: 200px;
-}
-
-.button-narrow {
-  float: left;
-  margin-left: 10px;
-}
-
-.matched-menu-items {
-  clear: both;
-}
-
-.matched-menu-item {
-  clear: both;
-  padding-top: 4.2px;
-}
-
-.button-remove {
-  margin-bottom: 20px;
-}
-
-.feedback {
-    font-size: 16px;
-    color: red;
+.reminder {
+  font-size: 18px;
+  color: red;
 }
 
 .loader {
-  float: left;
-  margin-left: 5px;
+  margin-left: 6px;
+  margin-top: 17.5px;
 
   font-size: 11px;
   width: 3em;
