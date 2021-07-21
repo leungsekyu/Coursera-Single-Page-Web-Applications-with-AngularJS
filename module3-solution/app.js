@@ -73,7 +73,7 @@
       }).then(function (response) {
         var foundItems = [];
 
-        if (searchTerm === undefined) {
+        if (searchTerm === undefined || searchTerm === '') {
           return foundItems;
         }
 
