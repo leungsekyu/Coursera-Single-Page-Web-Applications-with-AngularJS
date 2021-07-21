@@ -1,0 +1,12 @@
+<div class="loader" ng-if="loading"></div>
+<ul class="matched-menu-items">
+    <li ng-repeat="matchedMenuItem in found">
+        <div class="matched-menu-item col-xs-5">
+            {{ matchedMenuItem.name }}
+        </div>
+        <div class="button-remove">
+            <button ng-click="onRemove({index: $index});">Don't want this one!</button>
+        </div>
+    </li>
+</ul>
+<div class="feedback" ng-if="found.length === 0;">No Matched Menu Items Found.</div>
