@@ -70,26 +70,30 @@
       return $http({
         method: 'get',
         url: ApiBasePath + '/menu_items.json',
-      }).then(function (response) {
-        var foundItems = [];
+      })
+        .then(function (response) {
+          var foundItems = [];
 
-        if (searchTerm === undefined || searchTerm === '') {
-          return foundItems;
-        }
-
-        var matchedMenuItems = response.data.menu_items;
-        for (var matchedMenuItem of matchedMenuItems) {
-          if (
-            matchedMenuItem.description
-              .toLowerCase()
-              .indexOf(searchTerm.toLowerCase()) != -1
-          ) {
-            foundItems.push(matchedMenuItem);
+          if (searchTerm === undefined || searchTerm === '') {
+            return foundItems;
           }
-        }
 
-        return foundItems;
-      });
+          var matchedMenuItems = response.data.menu_items;
+          for (var matchedMenuItem of matchedMenuItems) {
+            if (
+              matchedMenuItem.description
+                .toLowerCase()
+                .indexOf(searchTerm.toLowerCase()) != -1
+            ) {
+              foundItems.push(matchedMenuItem);
+            }
+          }
+
+          return foundItems;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     };
   }
 })();
