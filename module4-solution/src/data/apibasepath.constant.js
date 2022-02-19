@@ -1,5 +1,5 @@
 (function () {
   angular
-    .module('MenuApp')
+    .module('Data')
     .constant('ApiBasePath', 'https://davids-restaurant.herokuapp.com');
 })();
