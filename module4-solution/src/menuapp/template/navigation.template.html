@@ -1,0 +1,36 @@
+<icons></icons>
+
+<div class="container">
+  <header
+    class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+  >
+    <a
+      ui-sref="home"
+      class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+    >
+      <svg class="bi me-2" width="40" height="32">
+        <use xlink:href="#home" />
+      </svg>
+      <span class="fs-4">Welcome to our Restaurant</span>
+    </a>
+
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a
+          ui-sref="home"
+          class="{{$ctrl.classHome}}"
+          aria-current="{{$ctrl.ariaCurrentHome}}"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          ui-sref="categories"
+          class="{{$ctrl.classCategories}}"
+          aria-current="{{$ctrl.ariaCurrentCategories}}"
+          >Categories</a
+        >
+      </li>
+    </ul>
+  </header>
+</div>

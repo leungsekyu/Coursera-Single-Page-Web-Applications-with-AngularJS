@@ -1,0 +1,25 @@
+<icons></icons>
+
+<table class="table table-hover align-middle mt-3">
+  <thead>
+    <tr>
+      <th scope="col" class="text-primary">{{$ctrl.categoryName}}</th>
+      <th scope="col">Name</th>
+      <th scope="col">Short Name</th>
+      <th scope="col">ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in $ctrl.items">
+      <!-- <th scope="row">{{$index + 1}}</th> -->
+      <th scope="row">
+        <svg class="bi me-2" width="25" height="25">
+          <use xlink:href="#bootstrap" />
+        </svg>
+      </th>
+      <td>{{ item.name }}</td>
+      <td>{{ item.short_name }}</td>
+      <td>{{ item.id }}</td>
+    </tr>
+  </tbody>
+</table>

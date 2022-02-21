@@ -4,9 +4,9 @@
   angular.module('MenuApp').config([
     '$stateProvider',
     function ($stateProvider) {
-      $stateProvider.state('menuHome', {
+      $stateProvider.state('home', {
         url: '/',
-        templateUrl: 'src/routes/template/menuhome.template.html',
+        component: 'home',
       });
     },
   ]);

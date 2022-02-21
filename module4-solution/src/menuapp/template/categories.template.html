@@ -1,5 +1,17 @@
-<ul>
-    <li ng-repeat="category in $ctrl.categories">
+<navigation is-categories-active="true"></navigation>
+
+<div class="container">
+  <div class="row">
+    <div
+      class="d-grid col-3 p-1"
+      ng-repeat="category in $ctrl.categories"
+      ui-sref="categories.items({categoryID: $index})"
+    >
+      <button type="button" class="btn btn-outline-primary">
         {{ category.name }}
-    </li>
-</ul>
+      </button>
+    </div>
+  </div>
+
+  <ui-view> </ui-view>
+</div>

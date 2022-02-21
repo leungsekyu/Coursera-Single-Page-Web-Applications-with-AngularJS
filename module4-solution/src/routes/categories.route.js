@@ -4,10 +4,9 @@
   angular.module('MenuApp').config([
     '$stateProvider',
     function ($stateProvider) {
-      $stateProvider.state('menuCategories', {
+      $stateProvider.state('categories', {
         url: '/categories',
-        templateUrl: 'src/routes/template/menucategories.template.html',
-        controller: 'MenuCategoriesController as menu',
+        component: 'categories',
         resolve: {
           categories: [
             'MenuDataService',
