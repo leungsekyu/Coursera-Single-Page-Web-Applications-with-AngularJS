@@ -5,9 +5,13 @@
     <div
       class="d-grid col-3 p-1"
       ng-repeat="category in $ctrl.categories"
-      ui-sref="categories.items({categoryID: $index})"
+      ui-sref="categories.items({categoryShortName: $ctrl.categories[$index].short_name})"
     >
-      <button type="button" class="btn btn-outline-primary">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        ng-click="$ctrl.setCategoryID($index);"
+      >
         {{ category.name }}
       </button>
     </div>

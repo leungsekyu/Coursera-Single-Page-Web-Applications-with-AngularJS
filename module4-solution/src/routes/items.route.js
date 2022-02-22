@@ -5,24 +5,23 @@
     '$stateProvider',
     function ($stateProvider) {
       $stateProvider.state('categories.items', {
-        // url: '/{categoryID}',
-        url: '/:categoryID',
+        url: '/:categoryShortName',
         component: 'items',
         resolve: {
           categoryName: [
-            '$stateParams',
             'categories',
-            function ($stateParams, categories) {
-              return categories[$stateParams.categoryID].name;
+            'CategoryDataService',
+            function (categories, CategoryDataService) {
+              return categories[CategoryDataService.getCategoryID()].name;
             },
           ],
           items: [
-            '$stateParams',
+            '$transition$',
             'categories',
             'MenuDataService',
-            function ($stateParams, categories, MenuDataService) {
+            function ($transition$, categories, MenuDataService) {
               return MenuDataService.getItemsForCategory(
-                categories[$stateParams.categoryID].short_name
+                $transition$.params('to').categoryShortName
               );
             },
           ],

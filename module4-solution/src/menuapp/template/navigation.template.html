@@ -6,9 +6,18 @@
       ui-sref="home"
       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
     >
-      <svg class="bi me-2" width="40" height="32">
+      <svg class="bi me-2" width="40" height="32" ng-if="!$ctrl.showSpinner">
         <use xlink:href="#home" />
       </svg>
+      <div
+        class="spinner-border bi me-2"
+        width="40"
+        height="32"
+        role="status"
+        ng-if="$ctrl.showSpinner"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
       <span class="fs-4">Welcome to our Restaurant</span>
     </a>
 

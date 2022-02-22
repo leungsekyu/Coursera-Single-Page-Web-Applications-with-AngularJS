@@ -1,7 +1,7 @@
 (function () {
   angular.module('MenuApp').component('navigation', {
     templateUrl: 'src/menuapp/template/navigation.template.html',
-    controller: navigationComponentController,
+    controller: NavigationComponentController,
     bindings: {
       isHomeActive: '<',
       isCategoriesActive: '<',
@@ -9,20 +9,37 @@
   });
 })();
 
-function navigationComponentController() {
-  this.$onInit = function () {
-    if (this.isHomeActive) {
-      this.classHome = 'nav-link active';
-      this.ariaCurrentHome = 'page';
+NavigationComponentController.$inject = ['$transitions', '$trace'];
+function NavigationComponentController($transitions, $trace) {
+  var $ctrl = this;
+
+  $ctrl.$onInit = function () {
+    if ($ctrl.isHomeActive) {
+      $ctrl.classHome = 'nav-link active';
+      $ctrl.ariaCurrentHome = 'page';
     } else {
-      this.classHome = 'nav-link';
+      $ctrl.classHome = 'nav-link';
     }
 
-    if (this.isCategoriesActive) {
-      this.classCategories = 'nav-link active';
-      this.ariaCurrentCategories = 'page';
+    if ($ctrl.isCategoriesActive) {
+      $ctrl.classCategories = 'nav-link active';
+      $ctrl.ariaCurrentCategories = 'page';
     } else {
-      this.classCategories = 'nav-link';
+      $ctrl.classCategories = 'nav-link';
     }
+
+    $transitions.onStart({}, function () {
+      $ctrl.showSpinner = true;
+    });
+
+    $transitions.onSuccess({}, function () {
+      $ctrl.showSpinner = false;
+    });
+
+    $transitions.onError({}, function () {
+      $ctrl.showSpinner = false;
+    });
+
+    $trace.enable('TRANSITION');
   };
 }
