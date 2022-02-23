@@ -21,20 +21,20 @@
       } else {
         $ctrl.classCategories = 'nav-link';
       }
-
-      $transitions.onStart({}, function () {
-        $ctrl.showSpinner = true;
-      });
-
-      $transitions.onSuccess({}, function () {
-        $ctrl.showSpinner = false;
-      });
-
-      $transitions.onError({}, function () {
-        $ctrl.showSpinner = false;
-      });
-
-      $trace.enable('TRANSITION');
     };
+
+    $transitions.onStart({}, function () {
+      $ctrl.showSpinner = true;
+    });
+
+    $transitions.onSuccess({}, function () {
+      $ctrl.showSpinner = false;
+    });
+
+    $transitions.onError({}, function () {
+      $ctrl.showSpinner = false;
+    });
+
+    $trace.enable('TRANSITION');
   }
 })();
