@@ -125,6 +125,15 @@ h1.h2 {
 .ng-touched .ng-invalid {
   border: 2px red solid;
 }
+
+.warning {
+  font-size: 0.8em;
+  color: red;
+}
+
+.helper {
+  font-size: 0.8em;
+}
 /* END SIGN UP PAGE */
 
 /********** Large devices only **********/
