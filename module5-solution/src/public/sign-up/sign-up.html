@@ -2,13 +2,22 @@
   <h1 class="h2">Sign up for the newsletter!</h1>
 
   <form name="signUpForm" id="signUpForm" novalidate>
+    <!-- first name -->
     <div class="form-group">
       <label for="firstName">First name</label>
+
       <span
-        class="warning"
-        ng-if="signUpForm.firstName.$error.required && signUpForm.firstName.$touched"
-        >*First name is required!</span
+        class="fail"
+        ng-if="signUpForm.firstName.$touched"
+        ng-messages="signUpForm.firstName.$error"
       >
+        <span ng-message="required">*First name is required!</span>
+      </span>
+      <span
+        class="glyphicon glyphicon-ok-sign pass"
+        ng-if="signUpForm.firstName.$touched && signUpForm.firstName.$valid"
+      ></span>
+
       <input
         type="text"
         class="form-control"
@@ -18,14 +27,24 @@
         required
       />
     </div>
+    <!-- end first name -->
 
+    <!-- last name -->
     <div class="form-group">
       <label for="lastName">Last name</label>
+
       <span
-        class="warning"
-        ng-if="signUpForm.lastName.$error.required && signUpForm.lastName.$touched"
-        >*Last name is required!</span
+        class="fail"
+        ng-if="signUpForm.lastName.$touched"
+        ng-messages="signUpForm.lastName.$error"
       >
+        <span ng-message="required">*Last name is required!</span>
+      </span>
+      <span
+        class="glyphicon glyphicon-ok-sign pass"
+        ng-if="signUpForm.lastName.$touched && signUpForm.lastName.$valid"
+      ></span>
+
       <input
         type="text"
         class="form-control"
@@ -35,14 +54,25 @@
         required
       />
     </div>
+    <!-- end last name -->
 
+    <!-- email address -->
     <div class="form-group">
       <label for="emailAddress">Email address</label>
+
       <span
-        class="warning"
-        ng-if="signUpForm.emailAddress.$invalid && signUpForm.emailAddress.$touched"
-        >*Email address is invalid!</span
+        class="fail"
+        ng-if="signUpForm.emailAddress.$touched"
+        ng-messages="signUpForm.emailAddress.$error"
       >
+        <span ng-message="required">*Email address is required!</span>
+        <span ng-message="email">*Email address is invalid!</span>
+      </span>
+      <span
+        class="glyphicon glyphicon-ok-sign pass"
+        ng-if="signUpForm.emailAddress.$touched && signUpForm.emailAddress.$valid"
+      ></span>
+
       <input
         type="email"
         class="form-control"
@@ -52,39 +82,80 @@
         required
       />
     </div>
+    <!-- end email address -->
 
+    <!-- phone number -->
     <div class="form-group">
       <label for="phoneNumber">Phone number</label>
+
       <span
-        class="warning"
-        ng-if="signUpForm.phoneNumber.$invalid && signUpForm.phoneNumber.$touched"
-        >*Phone number is invalid!</span
+        class="fail"
+        ng-if="signUpForm.phoneNumber.$touched"
+        ng-messages="signUpForm.phoneNumber.$error"
       >
+        <span ng-message="required">*Phone number is required!</span>
+        <span ng-message="pattern">*Phone number is invalid!</span>
+      </span>
+      <span
+        class="glyphicon glyphicon-ok-sign pass"
+        ng-if="signUpForm.phoneNumber.$touched && signUpForm.phoneNumber.$valid"
+      ></span>
+
       <input
         type="tel"
         class="form-control"
         id="phoneNumber"
         name="phoneNumber"
         ng-model="signUpCtrl.user.phoneNumber"
-        pattern="(\d{3})-(\d{3})-(\d{4})"
         required
+        pattern="(\d{3})-(\d{3})-(\d{4})"
       />
+
       <span class="helper help-block"
         >Please type in the format '###-###-####'</span
       >
     </div>
+    <!-- end phone number -->
 
+    <!-- favorite dish -->
     <div class="form-group">
       <label for="favoriteDish">Favorite dish</label>
+
+      <span
+        class="fail"
+        ng-if="signUpForm.favoriteDish.$touched"
+        ng-messages="signUpForm.favoriteDish.$error"
+      >
+        <span ng-message="required">*Favorite dish is required!</span>
+        <span ng-message="checkFavoriteDish">*Favorite dish is invalid!</span>
+      </span>
+
+      <span
+        class="glyphicon glyphicon-ok-sign pass"
+        ng-if="signUpForm.favoriteDish.$touched && signUpForm.favoriteDish.$valid"
+      ></span>
+
       <input
         type="text"
         class="form-control"
         id="favoriteDish"
         name="favoriteDish"
+        ng-model="signUpCtrl.user.favoriteDish"
+        ng-model-options="{ updateOn: 'blur' }"
+        required
+        check-favorite-dish
       />
-      <span class="helper help-block">Please type in the 'menu number'</span>
-    </div>
 
-    <button type="submit" class="btn btn-default">Submit</button>
+      <span class="helper help-block">Please type in the menu number</span>
+    </div>
+    <!-- end favorite dish -->
+
+    <button
+      type="submit"
+      class="btn btn-default"
+      ng-disabled="signUpForm.$invalid || signUpForm.$pending"
+    >
+      Submit
+    </button>
   </form>
 </div>

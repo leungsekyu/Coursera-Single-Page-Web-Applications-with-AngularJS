@@ -5,6 +5,6 @@
 
   SignUpController.$inject = ['MenuService'];
   function SignUpController(MenuService) {
-    var $ctrl = this;
+    var signUpCtrl = this;
   }
 })();

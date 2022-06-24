@@ -118,17 +118,13 @@ h1.h2 {
   margin-bottom: 35px;
 }
 
-.ng-touched .ng-valid {
-  border: 2px green solid;
-}
-
-.ng-touched .ng-invalid {
-  border: 2px red solid;
-}
-
-.warning {
+.fail {
   font-size: 0.8em;
   color: red;
+}
+
+.pass {
+  color: green;
 }
 
 .helper {
