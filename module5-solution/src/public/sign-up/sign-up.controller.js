@@ -3,8 +3,12 @@
 
   angular.module('public').controller('SignUpController', SignUpController);
 
-  SignUpController.$inject = ['MenuService'];
-  function SignUpController(MenuService) {
+  SignUpController.$inject = ['UserService'];
+  function SignUpController(UserService) {
     var signUpCtrl = this;
+
+    signUpCtrl.saveUser = function (user) {
+      UserService.saveUser(user);
+    };
   }
 })();
