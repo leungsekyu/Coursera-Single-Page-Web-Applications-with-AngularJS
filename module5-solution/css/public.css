@@ -113,6 +113,47 @@ h3.menu-item-title {
 }
 /* END SINGLE CATEGORY PAGE */
 
+/* MY INFO PAGE */
+.table > tbody > tr > td {
+  font-size: 1.1em;
+  padding-left: 30px;
+  border: 0px;
+}
+
+.table, .table > tbody > tr > th {
+  border: 0px;
+}
+
+.favorite-dish-photo {
+  position: relative;
+  border: 2px solid #3F0C1F;
+  overflow: hidden;
+  padding: 0;
+  margin-right: -15px;
+  /* margin-left: auto; */
+  margin-bottom: 20px;
+  max-width: 250px;
+}
+
+.favorite-dish-photo div {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  background-color: #557c3e;
+  text-align: center;
+}
+
+h3.favorite-dish-title {
+  margin: 0 0 10px;
+}
+
+.favorite-dish-description {
+  font-size: .9em;
+  font-style: italic;
+}
+/* END MY INFO PAGE */
+
 /* SIGN UP PAGE */
 h1.h2 {
   margin-bottom: 35px;
@@ -123,7 +164,12 @@ h1.h2 {
   color: red;
 }
 
-.pass {
+.success {
+  font-size: 0.8em;
+  color: green;
+}
+
+.success-icon {
   color: green;
 }
 

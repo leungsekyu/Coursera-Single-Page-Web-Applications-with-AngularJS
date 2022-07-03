@@ -1,0 +1,45 @@
+<div class="container">
+  <table class="table table-bordered align-middle">
+    <tbody>
+      <tr>
+        <th scope="row">First Name</th>
+        <td>{{ myInfoCtrl.user.firstName }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Last Name</th>
+        <td>{{ myInfoCtrl.user.lastName }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Email Address</th>
+        <td colspan="2">{{ myInfoCtrl.user.emailAddress }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Phone Number</th>
+        <td colspan="2">{{ myInfoCtrl.user.phoneNumber }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Favorite Dish</th>
+        <td colspan="2">
+          <div class="favorite-dish-photo">
+            <div>{{myInfoCtrl.user.favoriteDish.short_name}}</div>
+            <img
+              class="img-responsive"
+              width="250"
+              height="150"
+              ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.user.favoriteDish.short_name}}.jpg"
+              alt="{{myInfoCtrl.user.favoriteDish.name}}"
+            />
+          </div>
+          <div class="col-sm-7">
+            <h3 class="favorite-dish-title">
+              {{ myInfoCtrl.user.favoriteDish.name }}
+            </h3>
+            <p class="favorite-dish-description">
+              {{ myInfoCtrl.user.favoriteDish.description }}
+            </p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

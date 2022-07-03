@@ -47,6 +47,26 @@
           ],
         },
       })
+      .state('public.unauthenticated', {
+        url: '/unauthenticated',
+        templateUrl: 'src/public/unauthenticated/unauthenticated.html',
+      })
+      .state('public.myInfo', {
+        url: '/my-info',
+        templateUrl: 'src/public/my-info/my-info.html',
+        controller: 'MyInfoController',
+        controllerAs: 'myInfoCtrl',
+        resolve: {
+          favoriteDish: [
+            'MenuService',
+            'UserService',
+            function (MenuService, UserService) {
+              var user = UserService.getUser();
+              return MenuService.getMenuItem(user.favoriteDishShortName);
+            },
+          ],
+        },
+      })
       .state('public.signUp', {
         url: '/sign-up',
         templateUrl: 'src/public/sign-up/sign-up.html',

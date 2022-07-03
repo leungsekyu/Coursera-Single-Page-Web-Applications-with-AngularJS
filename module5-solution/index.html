@@ -68,14 +68,17 @@
                   Menu</a
                 >
               </li>
-              <li>
-                <a href="#">
+              <li
+                id="navMyInfoButton"
+                ui-sref-active='{"active": "public.unauthenticated", "active": "public.myInfo"}'
+              >
+                <a ui-sref="public.myInfo">
                   <span class="glyphicon glyphicon-user"></span
                   ><br class="hidden-xs" />
                   My Info</a
                 >
               </li>
-              <li>
+              <li id="navSignUpButton" ui-sref-active="active">
                 <a ui-sref="public.signUp">
                   <span class="glyphicon glyphicon-ok-sign"></span
                   ><br class="hidden-xs" />
@@ -167,13 +170,15 @@
     <!-- Public Module -->
     <script src="src/public/public.module.js"></script>
     <script src="src/public/public.routes.js"></script>
+    <script src="src/public/services/user.service.js"></script>
+    <script src="src/public/services/redirector.service.js"></script>
     <script src="src/public/menu/menu.controller.js"></script>
     <script src="src/public/menu-category/menu-category.component.js"></script>
     <script src="src/public/menu-items/menu-items.controller.js"></script>
     <script src="src/public/menu-item/menu-item.component.js"></script>
+    <script src="src/public/my-info/my-info.controller.js"></script>
     <script src="src/public/sign-up/sign-up.controller.js"></script>
     <script src="src/public/sign-up/sign-up.directive.js"></script>
-    <script src="src/public/user/user.service.js"></script>
 
     <!-- ADMIN SITE -->
 

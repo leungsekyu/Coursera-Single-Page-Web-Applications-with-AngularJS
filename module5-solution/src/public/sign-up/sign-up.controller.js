@@ -9,6 +9,7 @@
 
     signUpCtrl.saveUser = function (user) {
       UserService.saveUser(user);
+      signUpCtrl.success = UserService.isAuthenticated();
     };
   }
 })();

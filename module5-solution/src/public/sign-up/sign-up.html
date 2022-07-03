@@ -14,7 +14,7 @@
         <span ng-message="required">*First name is required!</span>
       </span>
       <span
-        class="glyphicon glyphicon-ok-sign pass"
+        class="glyphicon glyphicon-ok-sign success-icon"
         ng-if="signUpForm.firstName.$touched && signUpForm.firstName.$valid"
       ></span>
 
@@ -41,7 +41,7 @@
         <span ng-message="required">*Last name is required!</span>
       </span>
       <span
-        class="glyphicon glyphicon-ok-sign pass"
+        class="glyphicon glyphicon-ok-sign success-icon"
         ng-if="signUpForm.lastName.$touched && signUpForm.lastName.$valid"
       ></span>
 
@@ -69,7 +69,7 @@
         <span ng-message="email">*Email address is invalid!</span>
       </span>
       <span
-        class="glyphicon glyphicon-ok-sign pass"
+        class="glyphicon glyphicon-ok-sign success-icon"
         ng-if="signUpForm.emailAddress.$touched && signUpForm.emailAddress.$valid"
       ></span>
 
@@ -97,7 +97,7 @@
         <span ng-message="pattern">*Phone number is invalid!</span>
       </span>
       <span
-        class="glyphicon glyphicon-ok-sign pass"
+        class="glyphicon glyphicon-ok-sign success-icon"
         ng-if="signUpForm.phoneNumber.$touched && signUpForm.phoneNumber.$valid"
       ></span>
 
@@ -127,11 +127,11 @@
         ng-messages="signUpForm.favoriteDish.$error"
       >
         <span ng-message="required">*Favorite dish is required!</span>
-        <span ng-message="checkFavoriteDish">*Favorite dish is invalid!</span>
+        <span ng-message="checkFavoriteDish">*No such menu number exists!</span>
       </span>
 
       <span
-        class="glyphicon glyphicon-ok-sign pass"
+        class="glyphicon glyphicon-ok-sign success-icon"
         ng-if="signUpForm.favoriteDish.$touched && signUpForm.favoriteDish.$valid"
       ></span>
 
@@ -140,7 +140,7 @@
         class="form-control"
         id="favoriteDish"
         name="favoriteDish"
-        ng-model="signUpCtrl.user.favoriteDish"
+        ng-model="signUpCtrl.user.favoriteDishShortName"
         ng-model-options="{ updateOn: 'blur' }"
         required
         check-favorite-dish
@@ -150,13 +150,24 @@
     </div>
     <!-- end favorite dish -->
 
+    <!-- submit button -->
     <button
       type="submit"
       class="btn btn-default"
       ng-disabled="signUpForm.$invalid || signUpForm.$pending"
       ng-click="signUpCtrl.saveUser(signUpCtrl.user)"
+      ui-sref="public.myInfo"
     >
       Submit
     </button>
+
+    <span class="success" ng-if="signUpCtrl.success"
+      >*Your information has been saved</span
+    >
+    <span
+      class="glyphicon glyphicon-ok-sign success-icon"
+      ng-if="signUpCtrl.success"
+    ></span>
+    <!-- end submit button -->
   </form>
 </div>

@@ -3,13 +3,12 @@
 
   angular.module('common').service('MenuService', MenuService);
 
-  MenuService.$inject = ['$http', 'ApiPath'];
-  function MenuService($http, ApiPath) {
+  MenuService.$inject = ['$q', '$http', 'ApiPath'];
+  function MenuService($q, $http, ApiPath) {
     var service = this;
 
     service.getCategories = function () {
       return $http.get(ApiPath + '/categories.json').then(function (response) {
-        // console.log(response.data);
         return response.data;
       });
     };
@@ -23,9 +22,19 @@
       return $http
         .get(ApiPath + '/menu_items.json', config)
         .then(function (response) {
-          // console.log(response.data);
           return response.data;
         });
+    };
+
+    service.getMenuItem = function (shortName) {
+      return service.getMenuItems().then(function (response) {
+        for (var menuItem of response.menu_items) {
+          if (menuItem.short_name === shortName) {
+            return menuItem;
+          }
+        }
+        return $q.reject();
+      });
     };
   }
 })();
